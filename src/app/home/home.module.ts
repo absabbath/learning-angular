@@ -4,6 +4,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     HomeRoutingModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class HomeModule {
