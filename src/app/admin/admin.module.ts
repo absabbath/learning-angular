@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TableComponent } from './components/table/table.component';
 import { MaterialModule } from '../material/material.module';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialModule } from '../material/material.module';
     NavComponent,
     TableComponent,
     DashboardComponent,
+    ProductsListComponent,
   ],
   imports: [
     CommonModule,
