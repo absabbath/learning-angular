@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.products = this.productsService.getAll();
+    this.fetchProducts();
   }
 
   addItem() {
@@ -30,6 +30,47 @@ export class ProductsComponent implements OnInit {
   clickProduct(id: number) {
     console.log('product');
     console.log(id);
+  }
+
+  fetchProducts() {
+    this.productsService.getAll().subscribe(products => {
+      this.products = products;
+    });
+  }
+
+  createProduct() {
+
+    const product: Product = {
+      id: '12345',
+      title: 'BRINCOS BRINCOS',
+      price: 30000,
+      description: 'BBBBBBBB BBBBBBB',
+      image: 'assets/images/camiseta.png',
+    };
+
+    this.productsService.createProduct(product).subscribe( result => {
+      console.log(result);
+    });
+
+  }
+
+  updateProduct() {
+    const product: Partial<Product> = {
+      title: 'Tostadas',
+      price: 40000,
+      description: 'De mariscos',
+      image: 'assets/images/camiseta.png',
+    };
+
+    this.productsService.updateProduct('12345', product).subscribe( result => {
+      console.log(result);
+    });
+  }
+
+  deleteProduct() {
+    this.productsService.deleteProduct('12345').subscribe( result => {
+      console.log(result);
+    });
   }
 
 }
